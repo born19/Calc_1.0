@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 using namespace std;
 
 bool DEBUG = true;
@@ -16,25 +17,26 @@ void start_screen() {
 		"==========================" << "\n" << endl; 
 }
 
-void replace_non_numb(char replace_this_input[], char banned_char[]) {
-if (DEBUG == true) {
-cout <<  "Input to function: " << replace_this_input << " " << "Banned_characters: " << banned_char << endl;
-}
+int getInt(){
+cout << "Enter an int: ";
+	int x = 0;
+	while(!(cin >> x)){
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Invalid input.  Try again: ";
+	}
+cout << "You enterd: " << x << endl;
+return(x);
 }
 
 int main() {
 	        // Print Start screen
-		
 		start_screen();	
-		
-	replace_non_numb("w","a");
-
 		bool switchExit = true;
 		int input_int;
 			do {
 			// Get input
-			cout << "What do you choose: ";
-			cin >> input_int;	
+			input_int = getInt();	
 			// Switch for mode
 	    		switch(input_int) {
 				case 1 : cout << "1\n";
@@ -49,6 +51,9 @@ int main() {
 				case 4 : cout << "4\n";
 					switchExit = true;
 			 		break;
+				case 5 : cout << "5\n";
+					switchExit = true;
+					break;
 				default : 
 					 cout << "Not a option.\n" << endl;  
 					 switchExit = false;
