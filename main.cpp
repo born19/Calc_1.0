@@ -1,8 +1,7 @@
 #include <iostream>
-
-
 using namespace std;
 
+bool DEBUG = true;
 
 void start_screen() {
 	cout <<
@@ -17,11 +16,19 @@ void start_screen() {
 		"==========================" << "\n" << endl; 
 }
 
+void replace_non_numb(char replace_this_input[], char banned_char[]) {
+if (DEBUG == true) {
+cout <<  "Input to function: " << replace_this_input << " " << "Banned_characters: " << banned_char << endl;
+}
+}
+
 int main() {
 	        // Print Start screen
 		
 		start_screen();	
 		
+	replace_non_numb("w","a");
+
 		bool switchExit = true;
 		int input_int;
 			do {
@@ -53,5 +60,4 @@ int main() {
 	
 		return 0;
 }
-
 
